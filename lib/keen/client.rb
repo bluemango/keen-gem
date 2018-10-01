@@ -153,7 +153,7 @@ module Keen
 
     def preprocess_order_by(params)
       order_by = params[:order_by]
-      if order_by.is_a?(Array)
+      if order_by.is_a?(Hash)
         params[:order_by] = MultiJson.encode(order_by)
       end
     end
