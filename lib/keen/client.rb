@@ -122,6 +122,7 @@ module Keen
       preprocess_timeframe(params)
       preprocess_max_age(params)
       preprocess_group_by(params)
+      preprocess_order_by(params)
       preprocess_percentile(params)
       preprocess_property_names(params)
 
@@ -147,6 +148,13 @@ module Keen
       group_by = params[:group_by]
       if group_by.is_a?(Array)
         params[:group_by] = MultiJson.encode(group_by)
+      end
+    end
+
+    def preprocess_order_by(params)
+      order_by = params[:order_by]
+      if order_by.is_a?(Array)
+        params[:order_by] = MultiJson.encode(order_by)
       end
     end
 
